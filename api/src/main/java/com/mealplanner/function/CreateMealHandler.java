@@ -19,10 +19,16 @@ public class CreateMealHandler implements RequestHandler<Map<String, Object>, Ap
 
     @Override
     public ApiGatewayResponse handleRequest(final Map<String, Object> request, final Context context) {
+        final Map<String, Object> requestContext = (Map<String, Object>) request.get("requestContext");
+        final Map<String, Object> identity = (Map<String, Object>) requestContext.get("identity");
+        final String userId = (String) identity.get("cognitoIdentityId");
         try {
+            LOGGER.info("User ID [{}]", userId);
+
             final JsonNode body = new ObjectMapper().readTree((String) request.get("body"));
             final MealRepository repository = new MealRepository();
             final Meal meal = new Meal();
+            meal.setUserId(userId);
             meal.setDescription(body.get("description").asText());
             repository.save(meal);
 
