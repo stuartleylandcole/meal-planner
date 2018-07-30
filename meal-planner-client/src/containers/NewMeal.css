@@ -1,0 +1,8 @@
+.NewMeal form {
+  padding-bottom: 15px;
+}
+
+.NewMeal form textarea {
+  height: 100px;
+  font-size: 14px;
+}
