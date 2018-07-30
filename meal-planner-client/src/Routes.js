@@ -6,6 +6,7 @@ import NotFound from "./containers/NotFound";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import NewMeal from "./containers/NewMeal";
+import Meals from "./containers/Meals";
 
 export default ({ childProps }) =>
   <Switch>
@@ -13,5 +14,6 @@ export default ({ childProps }) =>
     <AppliedRoute path="/login" exact component={Login} props={childProps} />
     <AppliedRoute path="/signup" exact component={Signup} props={childProps} />
     <AppliedRoute path="/meals/new" exact component={NewMeal} props={childProps} />
+    <AppliedRoute path="/meals/:id" exact component={Meals} props={childProps} />
     <Route component={NotFound} />
   </Switch>;
