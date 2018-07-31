@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FormGroup, FormControl, ControlLabel } from "react-bootstrap";
+import { FormGroup, FormControl } from "react-bootstrap";
 import { API } from "aws-amplify";
 import LoaderButton from "../components/LoaderButton";
 import "./Meals.css";
