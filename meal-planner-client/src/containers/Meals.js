@@ -45,7 +45,7 @@ export default class Meals extends Component {
   }
 
   saveMeal(meal) {
-    return API.put("meals", `meals/${this.props.match.params.id}`, {
+    return API.put("meals", `/meals/${this.props.match.params.id}`, {
       body: meal
     });
   }
