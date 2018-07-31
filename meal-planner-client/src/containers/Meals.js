@@ -66,7 +66,11 @@ export default class Meals extends Component {
     }
   }
 
-  handleDelete = event => {
+  deleteMeal() {
+    return API.del("meals", `/meals/${this.props.match.params.id}`);
+  }
+
+  handleDelete = async event => {
     event.preventDefault();
 
     const confirmed = window.confirm("Are you sure you want to delete this meal?");
@@ -76,6 +80,14 @@ export default class Meals extends Component {
     }
 
     this.setState({ isDeleting: true });
+
+    try {
+      await this.deleteMeal();
+      this.props.history.push("/");
+    } catch (e) {
+      alert(e.message);
+      this.setState({ isDeleting: false });
+    }
   }
 
   render() {
@@ -104,7 +116,7 @@ export default class Meals extends Component {
               block
               bsStyle="danger"
               bsSize="large"
-              isLoading={this.state.isLoading}
+              isLoading={this.state.isDeleting}
               onClick={this.handleDelete}
               text="Delete"
               loadingText="Deleting..."
