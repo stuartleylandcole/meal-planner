@@ -1,7 +1,7 @@
 export default {
   apiGateway: {
     REGION: "eu-west-2",
-    URL: "https://nekzgqwegj.execute-api.eu-west-2.amazonaws.com/dev"
+    URL: "https://api.dev.meal-plannr.com"
   },
   cognito: {
     REGION: "eu-west-2",
